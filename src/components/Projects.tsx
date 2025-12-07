@@ -1,6 +1,9 @@
 import { ExternalLink, Github, Folder, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
+import projectAiAssistant from "@/assets/project-ai-assistant.png";
+import projectEcotrack from "@/assets/project-ecotrack.png";
+import projectCloudsync from "@/assets/project-cloudsync.png";
 
 const Projects = () => {
   const featuredProjects = [
@@ -11,7 +14,7 @@ const Projects = () => {
       tags: ["TypeScript", "OpenAI", "VS Code API"],
       github: "https://github.com",
       live: "https://marketplace.visualstudio.com",
-      image: "🤖",
+      image: projectAiAssistant,
     },
     {
       title: "EcoTrack",
@@ -20,7 +23,7 @@ const Projects = () => {
       tags: ["React", "Node.js", "Chart.js", "MongoDB"],
       github: "https://github.com",
       live: "https://example.com",
-      image: "🌱",
+      image: projectEcotrack,
     },
     {
       title: "CloudSync",
@@ -29,7 +32,7 @@ const Projects = () => {
       tags: ["Python", "AWS", "PostgreSQL", "WebSocket"],
       github: "https://github.com",
       live: "https://example.com",
-      image: "☁️",
+      image: projectCloudsync,
     },
   ];
 
@@ -80,8 +83,12 @@ const Projects = () => {
                     index % 2 === 1 ? "md:order-1" : "md:order-2"
                   }`}
                 >
-                  <div className="aspect-video rounded-xl bg-gradient-to-br from-secondary to-muted border border-border/50 flex items-center justify-center text-6xl">
-                    {project.image}
+                  <div className="aspect-video rounded-xl overflow-hidden border border-border/50">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
                 <div
